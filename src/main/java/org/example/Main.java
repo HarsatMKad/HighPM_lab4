@@ -26,7 +26,6 @@ public class Main {
                 .collect(Collectors.groupingBy(Book::getName, Collectors.counting()));
         System.out.println("\n2)books: " + books);
 
-
         List<Book> sortBooks = Arrays.stream(clientList)
                 .flatMap(c -> Arrays.stream(c.favoriteBooks))
                 .sorted(Comparator.comparingInt(Book::getPublishingYear))
@@ -79,18 +78,18 @@ public class Main {
         String equalSmsText = "fine";
 
         for (Client clinet : lessThenAvg) {
-            Sms lessSms = new Sms(clinet.phone, lessSmsText);
-            System.out.println(lessSms.phoneNumber + " " + lessSms.message);
+            Sms sms = new Sms(clinet.phone, lessSmsText);
+            System.out.println(sms.phoneNumber + " " + sms.message);
         }
 
         for (Client clinet : equalThenAvg) {
-            Sms lessSms = new Sms(clinet.phone, equalSmsText);
-            System.out.println(lessSms.phoneNumber + " " + lessSms.message);
+            Sms sms = new Sms(clinet.phone, equalSmsText);
+            System.out.println(sms.phoneNumber + " " + sms.message);
         }
 
         for (Client clinet : moreThenAvg) {
-            Sms lessSms = new Sms(clinet.phone, moreSmsText);
-            System.out.println(lessSms.phoneNumber + " " + lessSms.message);
+            Sms sms = new Sms(clinet.phone, moreSmsText);
+            System.out.println(sms.phoneNumber + " " + sms.message);
         }
     }
 }
